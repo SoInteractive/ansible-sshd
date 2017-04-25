@@ -1,0 +1,4 @@
+---
+sshd_service: sshd
+sshd_sftp_server: /usr/libexec/openssh/sftp-server
+

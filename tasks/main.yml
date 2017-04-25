@@ -1,0 +1,62 @@
+---
+- name: Gather variables for each operating system
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution | lower }}-{{ ansible_distribution_version | lower }}.yml"
+    - "{{ ansible_distribution | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
+    - "{{ ansible_os_family | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
+    - "{{ ansible_distribution | lower }}.yml"
+    - "{{ ansible_os_family | lower }}.yml"
+  tags:
+    - always
+
+- name: Install
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - openssh-server
+    - openssh-client
+  tags:
+    - sshd
+
+- name: Run directory
+  file:
+    path: /var/run/sshd
+    state: directory
+    mode: 0755
+  when: ansible_distribution|lower == "ubuntu"
+  tags:
+    - sshd
+
+- name: Ensure ssh directory exists
+  file:
+    dest: /etc/ssh
+    state: directory
+    mode: 0755
+
+- name: Configuration
+  template:
+    src: sshd_config.j2
+    dest: "/etc/ssh/sshd_config"
+    owner: "root"
+    group: "root"
+    mode: 0644
+    validate: "/usr/sbin/sshd -t -f %s"
+  notify: reload sshd
+  tags:
+    - sshd
+
+- name: Add warning before SSH login
+  copy:
+    src: issue.net
+    dest: "{{ sshd_banner_path }}"
+
+- name: Service enabled and running
+  service:
+    name: "{{ sshd_service }}"
+    enabled: true
+    state: started
+  tags:
+    - sshd
+
