@@ -43,7 +43,7 @@
     group: "root"
     mode: 0644
     validate: "/usr/sbin/sshd -t -f %s"
-  notify: reload sshd
+  notify: restart sshd
   tags:
     - sshd
 
