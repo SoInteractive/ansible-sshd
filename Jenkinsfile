@@ -11,7 +11,7 @@ pipeline {
   options {
     disableConcurrentBuilds()
     buildDiscarder(logRotator(numToKeepStr: '30'))
-    timeout(15, MINUTES)
+    timeout(time: 15, unit: 'MINUTES')
   }
   stages {
     stage('Playbook syntax check') {
