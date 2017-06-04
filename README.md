@@ -5,7 +5,7 @@
 Ansible Role: sshd
 ==================
 
-[![Build Status](https://ci.devops.sosoftware.pl/buildStatus/icon?job=SoInteractive/sshd/master)](https://ci.devops.sosoftware.pl/job/SoInteractive/sshd/master) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Ansible Role](https://img.shields.io/ansible/role/18224.svg)](https://galaxy.ansible.com/SoInteractive/sshd/) [![Twitter URL](https://img.shields.io/twitter/follow/sointeractive.svg?style=social&label=Follow%20%40SoInteractive)](https://twitter.com/sointeractive)
+[![Build Status](https://ci.devops.sosoftware.pl/buildStatus/icon?job=SoInteractive/sshd/master)](https://ci.devops.sosoftware.pl/blue/organizations/jenkins/SoInteractive%2Fsshd/activity) [![License: MIT](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT) [![Ansible Role](https://img.shields.io/ansible/role/18224.svg)](https://galaxy.ansible.com/SoInteractive/sshd/) [![Twitter URL](https://img.shields.io/twitter/follow/sointeractive.svg?style=social&label=Follow%20%40SoInteractive)](https://twitter.com/sointeractive)
 
 Ansible role to manage SSH server settings
 
