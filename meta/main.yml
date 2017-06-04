@@ -2,12 +2,11 @@
 galaxy_info:
   author: Pawel Krupa
   description: OpenSSH SSH deamon configuration
-  company: 
+  company: Sointeractive
   min_ansible_version: 1.8
   platforms:
   - name: Ubuntu
     versions:
-    - trusty
     - xenial
   - name: EL
     versions:
