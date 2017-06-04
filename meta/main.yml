@@ -3,6 +3,7 @@ galaxy_info:
   author: Pawel Krupa
   description: OpenSSH SSH deamon configuration
   company: Sointeractive
+  license: MIT
   min_ansible_version: 1.8
   platforms:
   - name: Ubuntu
