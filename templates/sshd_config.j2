@@ -19,7 +19,7 @@ HostKey {{ key }}
 
 # Authentication:
 #LoginGraceTime 2m
-PermitRootLogin {{ "yes" if sshd_root_login else "no" }}
+PermitRootLogin {{ sshd_root_login }}
 #StrictModes yes
 #MaxAuthTries 6
 #MaxSessions 10
@@ -88,3 +88,10 @@ AcceptEnv XMODIFIERS
 # override default of no subsystems
 Subsystem   sftp    {{ sshd_sftp_server }}
 
+{% if sshd_allow_users != [] %}
+# Specify users which can connect
+AllowUsers {{ ansible_env['SUDO_USER'] }}@*
+{% for user in sshd_allow_users %}
+AllowUsers {{ user.name }}@{{ user.ip }}
+{% endfor %}
+{% endif %}
