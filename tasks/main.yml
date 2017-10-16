@@ -32,12 +32,12 @@
     dest: /etc/ssh
     state: directory
     mode: 0755
- 
+
 - name: Ensure ssh host keys exist
   command: "ssh-keygen -t {{ item }} -N '' -f /etc/ssh/ssh_host_{{ item }}_key"
   args:
     creates: "/etc/ssh/ssh_host_{{ item }}_key"
-  with_items: "{{ sshd_hostkeys }}" 
+  with_items: "{{ sshd_hostkeys }}"
 
 - name: Configuration
   template:
