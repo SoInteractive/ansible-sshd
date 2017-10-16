@@ -7,7 +7,7 @@ ListenAddress {{ sshd_address }}
 # The default requires explicit activation of protocol 1
 Protocol 2
 {% for key in sshd_hostkeys %}
-HostKey {{ key }}
+HostKey /etc/ssh/ssh_host_{{ key }}_key
 {% endfor %}
 # Ciphers and keying
 #RekeyLimit default none
