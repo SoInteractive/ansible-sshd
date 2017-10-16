@@ -2,9 +2,9 @@
 sshd_port: 22
 sshd_address: "0.0.0.0"
 sshd_hostkeys:
-  - /etc/ssh/ssh_host_rsa_key
-  - /etc/ssh/ssh_host_ecdsa_key
-  - /etc/ssh/ssh_host_ed25519_key
+  - rsa
+  - ecdsa
+  - ed25519
 # sshd_root_login must be string
 sshd_root_login: "no"
 sshd_banner_path: /etc/issue.net
