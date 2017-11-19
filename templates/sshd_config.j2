@@ -14,13 +14,13 @@ HostKey /etc/ssh/ssh_host_{{ key }}_key
 
 # Logging
 # obsoletes QuietMode and FascistLogging
-#SyslogFacility AUTH
+SyslogFacility AUTH
 #LogLevel INFO
 
 # Authentication:
 #LoginGraceTime 2m
-PermitRootLogin {{ sshd_root_login }}
-#StrictModes yes
+PermitRootLogin {{ 'without-password' if (sshd_root_login|bool) else 'no' }}
+StrictModes yes
 #MaxAuthTries 6
 #MaxSessions 10
 #RSAAuthentication yes
@@ -86,7 +86,9 @@ AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
 AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
 AcceptEnv XMODIFIERS
 # override default of no subsystems
-Subsystem   sftp    {{ sshd_sftp_server }}
+{% if sshd_sftp_enable %}
+Subsystem sftp internal-sftp
+{% endif %}
 
 {% if sshd_allow_users != [] %}
 # Specify users which can connect

@@ -5,10 +5,13 @@ sshd_hostkeys:
   - rsa
   - ecdsa
   - ed25519
-# sshd_root_login must be string
-sshd_root_login: "no"
-sshd_banner_path: /etc/issue.net
 
+# Either disable or only allow ssh root login via certificates.
+sshd_root_login: False
+sshd_banner_path: /etc/issue.net
+sshd_banner_text: ""
+
+sshd_sftp_enable: False
 sshd_allow_users: []
 #sshd_allow_users:
 #  - name: root
