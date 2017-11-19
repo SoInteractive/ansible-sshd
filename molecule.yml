@@ -7,10 +7,10 @@ verifier:
   name: testinfra
 docker:
   containers:
-    - name: sshd-xenial
+    - name: xenial
       image: ubuntu
       image_version: xenial
-    - name: sshd-centos
+    - name: centos
       image: centos/systemd
       image_version: latest
       privileged: true

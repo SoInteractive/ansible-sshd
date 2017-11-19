@@ -52,8 +52,8 @@
     - sshd
 
 - name: Add warning before SSH login
-  copy:
-    src: issue.net
+  template:
+    src: issue.net.j2
     dest: "{{ sshd_banner_path }}"
 
 - name: Service enabled and running

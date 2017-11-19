@@ -1,5 +1,9 @@
+{% if sshd_banner_text == "" %}
 ###############################################################
 #                 Authorized access only!                     # 
 # Disconnect IMMEDIATELY if you are not an authorized user!!! #
-#         All actions Will be monitored and recorded          #
+#         All actions will be monitored and recorded          #
 ###############################################################
+{% else %}
+{{ sshd_banner_text }}
+{% endif %}

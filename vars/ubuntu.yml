@@ -1,6 +1,5 @@
 ---
 sshd_service: ssh
-sshd_sftp_server: /usr/lib/openssh/sftp-server
 sshd_packages:
   - openssh-server
   - openssh-client
