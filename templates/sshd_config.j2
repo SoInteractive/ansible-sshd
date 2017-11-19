@@ -19,7 +19,7 @@ SyslogFacility AUTH
 
 # Authentication:
 #LoginGraceTime 2m
-PermitRootLogin {{ 'without-password' if (ssh_root_login|bool) else 'no' }}
+PermitRootLogin {{ 'without-password' if (sshd_root_login|bool) else 'no' }}
 StrictModes yes
 #MaxAuthTries 6
 #MaxSessions 10
