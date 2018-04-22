@@ -9,6 +9,10 @@ Ansible Role: sshd
 
 Ansible role to manage SSH server settings
 
+# :warning: IMPORTANT NOTICE
+
+THIS PROJECT IS ABANDONED. WE DO NOT ACCEPT ANY NEW ISSUES AND/OR PULL REQUESTS.
+
 Examples
 --------
 
